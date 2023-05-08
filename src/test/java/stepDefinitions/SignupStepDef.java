@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -10,6 +11,7 @@ import testdata.TestData;
 
 public class SignupStepDef {
     HomePage homePage=new HomePage();
+    Faker faker = new Faker();
     RegisterPage registerPage=new RegisterPage();
     @Given("user in Lambdatest Homepage")
     public void userInLambdatestHomepage() {
@@ -48,17 +50,20 @@ public class SignupStepDef {
 
     @And("user enter First name {string}")
     public void userEnterFirstName(String firstname) {
-        registerPage.enterFirstName(firstname);
+        TestData.firstName = faker.name().firstName();
+        registerPage.enterFirstName(TestData.firstName);
     }
 
     @And("user enter Last name {string}")
     public void userEnterLastName(String lastname) {
-        registerPage.enterLastName(lastname);
+        TestData.lastName = faker.name().lastName();
+        registerPage.enterLastName(TestData.lastName);
     }
 
     @And("user enter Email {string}")
     public void userEnterEmail(String email) {
-        registerPage.enterEmail(email);
+        TestData.email = faker.name().firstName()+"."+faker.name().lastName()+ "@gmail.com";
+        registerPage.enterEmail(TestData.email);
     }
 
     @And("user enter Telephone {string}")
