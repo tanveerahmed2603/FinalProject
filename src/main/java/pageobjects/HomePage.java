@@ -24,6 +24,9 @@ public class HomePage extends Config {
     @FindBy(xpath= "//span[contains(text(),'Register')]")
     WebElement registerMenu;
 
+    @FindBy(xpath= "//span[contains(text(),'Login')]")
+    WebElement loginMenu;
+
     public void checkTitle(){
         Assert.assertEquals(driver.getTitle(),"Your Store");
     }
@@ -32,6 +35,12 @@ public class HomePage extends Config {
         Actions action = new Actions(driver);
         action.moveToElement(myaccountMenu).build().perform();
         action.moveToElement(registerMenu).click().build().perform();
+    }
+
+    public void clickOnLogin(){
+        Actions action = new Actions(driver);
+        action.moveToElement(myaccountMenu).build().perform();
+        action.moveToElement(loginMenu).click().build().perform();
     }
 
 }

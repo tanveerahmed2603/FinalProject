@@ -62,12 +62,12 @@ public class SignupStepDef {
 
     @And("user enter Email {string}")
     public void userEnterEmail(String email) {
-        TestData.email = faker.name().firstName()+"."+faker.name().lastName()+ "@gmail.com";
         registerPage.enterEmail(TestData.email);
     }
 
     @And("user enter Telephone {string}")
     public void userEnterTelephone(String telephone) {
-        registerPage.enterTelephone(telephone);
+        TestData.telephone =faker.phoneNumber().cellPhone();
+        registerPage.enterTelephone(TestData.telephone);
     }
 }
