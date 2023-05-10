@@ -62,6 +62,7 @@ public class SignupStepDef {
 
     @And("user enter Email {string}")
     public void userEnterEmail(String email) {
+        TestData.email =TestData.firstName+"."+TestData.lastName+"$867@gmail.com";
         registerPage.enterEmail(TestData.email);
     }
 

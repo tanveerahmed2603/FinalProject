@@ -27,6 +27,30 @@ public class HomePage extends Config {
     @FindBy(xpath= "//span[contains(text(),'Login')]")
     WebElement loginMenu;
 
+    @FindBy(xpath= "//div[contains(@class,'search-category')]")
+    WebElement categoriesDropDown;
+
+    @FindBy(xpath="//a[contains(text(),'All Categories')]")
+    WebElement allCategories;
+
+    @FindBy(name="search")
+    WebElement searchTextField;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    WebElement searchTButton;
+
+    @FindBy(xpath="//h4[@class='title']//a")
+    List<WebElement> itemList;
+
+    @FindBy(xpath = "//button[@title='Add to Cart']")
+    List<WebElement> addToCartList;
+
+    @FindBy(xpath="//a[contains(text(),'View Cart')]")
+    WebElement viewCartButton;
+
+    @FindBy(xpath= "//div[contains(@class,'entry-section')]//button[@title='Add to Cart']")
+    WebElement addToCartButton;
+
     public void checkTitle(){
         Assert.assertEquals(driver.getTitle(),"Your Store");
     }
@@ -41,6 +65,30 @@ public class HomePage extends Config {
         Actions action = new Actions(driver);
         action.moveToElement(myaccountMenu).build().perform();
         action.moveToElement(loginMenu).click().build().perform();
+    }
+
+    public void selectAllCategories(){
+        categoriesDropDown.click();
+        allCategories.click();
+    }
+
+    public void searchForProduct(String productName){
+        searchTextField.sendKeys(productName);
+        searchTButton.click();
+    }
+
+    public  void findProductAndAddToCart(String productName){
+        for(int i=0;i<itemList.size();i++){
+           if(itemList.get(i).getText().equals(productName)){
+              itemList.get(i).click();
+              break;
+           }
+        }
+        addToCartButton.click();
+    }
+
+    public  void clickViewCartButton(){
+        viewCartButton.click();
     }
 
 }
