@@ -1,2 +1,2 @@
 # LamdaTestPlayground
-This is the final project for QA bootcamp
+This is a personal Automation project for Web UI
