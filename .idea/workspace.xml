@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e169cc2-80ba-4d50-bf56-1d19ff7dbee8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pageobjects/ShoppingCartPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/features/PurchaseItem.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/stepDefinitions/PurchaseItemStepDef.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pageobjects/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pageobjects/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/testdata/TestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/testdata/TestData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/features/signup.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/AccountSignup.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stepDefinitions/SignupStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinitions/SignupStepDef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
