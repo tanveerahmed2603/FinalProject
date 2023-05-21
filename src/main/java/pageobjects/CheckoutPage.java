@@ -1,6 +1,7 @@
 package pageobjects;
 
 import base.Config;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -69,7 +70,7 @@ public class CheckoutPage extends Config {
     @FindBy(id = "button-confirm")
     WebElement confirmButton;
 
-    @FindBy(xpath = "//h1[contains(text(),'Your order has been placed']")
+    @FindBy(xpath = "//h1[contains(text(),'Your order has been placed')]")
     WebElement orderSuccessMessage;
 
     public void clickCheckoutButton(){
@@ -118,11 +119,11 @@ public class CheckoutPage extends Config {
         applyCoupon.click();
     }
 
-    public void applyGiftCertificate(String certificate){
-        useGiftCertificate.click();
-        giftCertificateCode.sendKeys(certificate);
-        applyGiftCertificate.click();
-    }
+//    public void applyGiftCertificate(String certificate){
+//        useGiftCertificate.click();
+//        giftCertificateCode.sendKeys(certificate);
+//        applyGiftCertificate.click();
+//    }
 
     public  void enterComments(String commentText) throws InterruptedException {
         comment.sendKeys(commentText);
@@ -139,7 +140,8 @@ public class CheckoutPage extends Config {
         Thread.sleep(1000);
     }
 
-    public void clickContinueButton(){
+    public void clickContinueButton() throws InterruptedException {
+        ((JavascriptExecutor)driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
         continueButton.click();
     }
 

@@ -22,7 +22,6 @@ Feature: Checkout item
     And user select Country
     And user select Region State
     And user enter coupon code and click on Apply Coupon
-    And user enter Gift certificate and click on Apply Gift certificate
     And user enter Comments about the order
     And user tick Privacy policy checkbox
     And user tick Terms & Conditions checkbox

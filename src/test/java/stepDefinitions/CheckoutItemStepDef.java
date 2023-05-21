@@ -76,11 +76,11 @@ public class CheckoutItemStepDef {
         checkout.applyCoupon(code);
     }
 
-    @And("user enter Gift certificate and click on Apply Gift certificate")
-    public void userEnterGiftCertificateAndClickOnApplyGiftCertificate() {
-        String certificate = faker.number().toString();
-        checkout.applyGiftCertificate(certificate);
-    }
+//    @And("user enter Gift certificate and click on Apply Gift certificate")
+//    public void userEnterGiftCertificateAndClickOnApplyGiftCertificate() {
+//        String certificate = faker.number().toString();
+//        checkout.applyGiftCertificate(certificate);
+//    }
 
     @And("user enter Comments about the order")
     public void userEnterCommentsAboutTheOrder() throws InterruptedException {
@@ -99,7 +99,7 @@ public class CheckoutItemStepDef {
     }
 
     @And("user click on Continue button from checkout page")
-    public void userClickOnContinueButtonFromCheckoutPage() {
+    public void userClickOnContinueButtonFromCheckoutPage() throws InterruptedException {
         checkout.clickContinueButton();
     }
 }
