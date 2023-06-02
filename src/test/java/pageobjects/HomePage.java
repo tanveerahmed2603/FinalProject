@@ -1,14 +1,12 @@
 package pageobjects;
 
 import base.Config;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-import javax.swing.*;
 import java.util.List;
 
 public class HomePage extends Config {

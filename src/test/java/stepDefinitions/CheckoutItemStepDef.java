@@ -1,9 +1,11 @@
 package stepDefinitions;
 
+import Utils.DatabaseUtil;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import pageobjects.CheckoutPage;
+import testdata.TestData;
 
 public class CheckoutItemStepDef {
     CheckoutPage checkout=new CheckoutPage();
@@ -20,44 +22,44 @@ public class CheckoutItemStepDef {
 
     @And("user enter company")
     public void userEnterCompany() throws InterruptedException {
-        String company= faker.name().name();
-        checkout.enterCompany(company);
+        TestData.company= faker.name().name();
+        checkout.enterCompany(TestData.company);
     }
 
     @And("user enter first Address")
     public void userEnterFirstAddress() throws InterruptedException {
-        String address1= faker.address().streetAddress();
-        checkout.enterAddress1(address1);
+        TestData.address1= faker.address().streetAddress();
+        checkout.enterAddress1(TestData.address1);
     }
 
     @And("user enter second Address")
     public void userEnterSecondAddress() throws InterruptedException {
-        String address2 = faker.address().secondaryAddress();
-        checkout.enterAddress2(address2);
+        TestData.address2 = faker.address().secondaryAddress();
+        checkout.enterAddress2(TestData.address2);
     }
 
     @And("user enter City")
     public void userEnterCity() {
-        String city = faker.address().city();
-        checkout.enterCity(city);
+        TestData.city = faker.address().city();
+        checkout.enterCity(TestData.city);
     }
 
     @And("user enter Postcode")
     public void userEnterPostcode() {
-        String postcode = faker.address().zipCode();
-        checkout.enterPostCode(postcode);
+        TestData.postcode = faker.address().zipCode();
+        checkout.enterPostCode(TestData.postcode);
     }
 
     @And("user select Country")
     public void userSelectCountry() {
-        String country = faker.country().name();
-        checkout.selectCountry(country);
+        TestData.country = faker.country().name();
+        checkout.selectCountry(TestData.country);
     }
 
     @And("user select Region State")
     public void userSelectRegionState() {
-        String state=faker.address().state();
-        checkout.selectRegion(state);
+        TestData.state=faker.address().state();
+        checkout.selectRegion(TestData.state);
     }
 
     @And("user tick Privacy policy checkbox")
@@ -101,5 +103,13 @@ public class CheckoutItemStepDef {
     @And("user click on Continue button from checkout page")
     public void userClickOnContinueButtonFromCheckoutPage() throws InterruptedException {
         checkout.clickContinueButton();
+    }
+
+    @And("user update new user details in to the database table CustomerCheckoutRegistration")
+    public void userUpdateNewUserDetailsInToTheDatabaseTableCustomerCheckoutRegistration() {
+        String query = "INSERT INTO CustomerCheckoutRegistration(firstName,lastName,email,customerPassword,confirmPassword,company,address1,address2,city,zipcode,country,state) VALUES ('"+ TestData.firstName+"','"+TestData.lastName+"','"+TestData.email+"','"+TestData.password+"'" +
+                ",'"+TestData.password+"','"+TestData.company+"','"+TestData.address1+"','"+TestData.address2+"','"+TestData.city+"','"+TestData.postcode+"','"+TestData.country+"','"+TestData.state+"')";
+        System.out.println("QUERY:"+query);
+        DatabaseUtil.executeQuery(query);
     }
 }

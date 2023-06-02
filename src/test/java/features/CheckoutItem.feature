@@ -27,6 +27,7 @@ Feature: Checkout item
     And user tick Terms & Conditions checkbox
     And user click on Continue button from checkout page
     And user click on Confirm Order button
-    Then user verify success message "Your order has been placed"
+    And user verify success message "Your order has been placed"
+    Then user update new user details in to the database table CustomerCheckoutRegistration
 
 
